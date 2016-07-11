@@ -49,6 +49,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public static final int CREATE_NEW_TASK = 0;
     public static MainActivity sReference;
 
+    // comment 2
+
     public static List<Task> tasks = new ArrayList<>();
     public static List<String> taskKeys = new ArrayList<>();
     public static List<Channel> channels = new ArrayList<>();
