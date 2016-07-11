@@ -1,7 +1,6 @@
 package com.jeffsieu.tasktracker.utils;
 
 import android.app.Activity;
-import android.content.Context;
 import android.support.annotation.NonNull;
 import android.support.design.widget.Snackbar;
 import android.util.Log;
@@ -14,7 +13,6 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
-import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -23,8 +21,8 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 import com.jeffsieu.tasktracker.R;
-import com.jeffsieu.tasktracker.activity.MainActivity;
 import com.jeffsieu.tasktracker.Task;
+import com.jeffsieu.tasktracker.activity.MainActivity;
 
 import java.util.Calendar;
 import java.util.GregorianCalendar;
@@ -40,6 +38,7 @@ public class DatabaseUtils {
 	}
 
 	public static void handleSignInResult(GoogleSignInResult result, Activity activity) {
+		//Toast.makeText(activity, result.getSignInAccount().., Toast.LENGTH_SHORT).show();
 		Log.d("Sign in", "handleSignInResult:" + result.isSuccess()+result.getSignInAccount());
 		if (result.isSuccess()) {
 			GoogleSignInAccount account = result.getSignInAccount();
@@ -71,6 +70,7 @@ public class DatabaseUtils {
 
 				});
 
+		Toast.makeText(activity, FirebaseAuth.getInstance().getCurrentUser().getUid(), Toast.LENGTH_SHORT).show();
 		DatabaseUtils.setUser(FirebaseAuth.getInstance().getCurrentUser().getUid());
 		DatabaseUtils.importFromDatabase(activity.findViewById(R.id.activity_main_fragment));
 	}
