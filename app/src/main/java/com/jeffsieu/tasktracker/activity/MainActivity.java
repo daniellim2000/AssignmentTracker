@@ -43,6 +43,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, GoogleApiClient.OnConnectionFailedListener {
+    // testing
+
     private static String TAG = MainActivity.class.getName();
     public static final int CREATE_NEW_TASK = 0;
     public static MainActivity sReference;
